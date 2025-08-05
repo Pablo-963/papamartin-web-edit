@@ -1,10 +1,180 @@
 console.log("Ahoj bro, co tu chceš?")
-// Dynamicky vložíme CSS link do hlavičky
-const cssLink = document.createElement('link');
-cssLink.rel = 'stylesheet';
-cssLink.href = 'https://raw.githack.com/Pablo-963/papamartin-web-edit/main/papastyles.css';
-document.head.appendChild(cssLink);
 
+const style = document.createElement('style');
+style.textContent = `
+ 
+  /* RESET VŠECH HLAVNÍCH ELEMENTŮ */
+  html, body, #content-wrapper, .overall-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* SKRYTÍ STANDARDNÍHO SCROLLBARU */
+  html {
+    scrollbar-width: none !important; /* Pro Firefox */
+    -ms-overflow-style: none !important; /* Pro IE/Edge */
+  }
+  body::-webkit-scrollbar {
+    display: none !important; /* Pro Chrome/Safari/Opera */
+  }
+
+  body {
+    min-height: 100vh !important;
+    background-image: url('https://larsentoubro-wp-bucket.s3.ap-south-1.amazonaws.com/wp-content/uploads/2020/06/08115114/Komastu-PC210-10M0.jpg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    font-family: 'Inter', sans-serif !important;
+    overflow-y: scroll !important; /* Zajišťuje scrollování i při skrytém scrollbaru */
+  }
+
+  /* STYLY PRO VLASTNÍ SCROLL INDIKÁTOR */
+  .custom-scroll-indicator {
+    position: fixed;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(139, 0, 0, 0.7); /* Tmavě červená s průhledností */
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    transition: top 0.1s ease-out;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  }
+
+  /* ZÁKLADNÍ STYLY PRO WRAPPER */
+  .overall-wrapper {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    margin: 5vh auto !important;
+    max-width: 1200px !important;
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
+  }
+
+  /* ÚPRAVA PRO ŠIRŠÍ ELEMENTY */
+  .container.navigation-wrapper,
+  .hp-ratings.container,
+  .custom-footer.elements-5 {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* SPECIFICKÉ ÚPRAVY PRO JEDNOTLIVÉ ELEMENTY */
+  .container.navigation-wrapper {
+    background-color: #8B0000 !important;
+  }
+
+  .hp-ratings.container {
+    background-color: #f8f9fa !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .custom-footer.elements-5 {
+    background-color: blue !important;
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+
+  /* OSTATNÍ STYLY */
+  .row.banners-row {
+    margin: 0 auto !important;
+    max-width: 100% !important;
+  }
+
+  /* MOBILNÍ OPRAVY */
+  @media (max-width: 768px) {
+    .overall-wrapper {
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+    
+    .container.navigation-wrapper,
+    .hp-ratings.container,
+    .custom-footer.elements-5 {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+
+    /* Skrytí indikátoru na mobilech */
+    .custom-scroll-indicator {
+      display: none !important;
+    }
+    html {
+      -webkit-overflow-scrolling: touch !important;
+    }
+  }
+
+  /* DEBUG BARVY */
+  #header,
+  main.content,
+  .content-wrapper.homepage-box.before-carousel,
+  .content-wrapper.homepage-box.welcome-wrapper,
+  #dklabBanplusIkony {
+    background-color: red !important;
+  }
+  .vote-wrap {
+    background-color: blue !important;
+  }
+  .container.footer-bottom {
+    background-color: black !important;
+  }
+
+  /* ---------------------- */
+  /* NOVÉ ÚPRAVY PODLE POŽADAVKŮ */
+  /* ---------------------- */
+  
+  /* 1. Zneviditelnění lazy-loaded obrázků */
+  img[loading="lazy"] {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* 2. Zmenšení paddingu na 10px pro #dklabBanplusIkony */
+  #dklabBanplusIkony {
+    padding: 10px !important;
+  }
+
+  /* 3. Úprava paddingu na 6px po stranách pro .dklabBanplusBox */
+  .dklabBanplusBox.dklabBanHome_12421 {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    margin-top: 21px !important;
+  }
+
+  /* 4. Změna margin-top na 21px pro nadpisy */
+  .homepage-group-title.homepage-products-heading-32.h4 {
+    margin-top: 21px !important;
+  }
+
+  /* 5. Úprava margin-top na 24px pro footer banners */
+  .footer-banners.row.banner-wrapper {
+    margin-top: 24px !important;
+  }
+
+  /* 6. Zmenšení vertikálních marginů na 1px */
+  .content-wrapper.homepage-box.welcome-wrapper {
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+  }
+
+  /* 7. Změna barvy a úprava pozadí pouze na horní část */
+  .hp-ratings.container {
+    background: linear-gradient(
+      to bottom, 
+      #f9f9fb 10px, 
+      transparent 10px
+    ) !important;
+    margin-bottom: 0 !important;
+    padding-top: 10px !important;
+  }
+`;
+document.head.appendChild(style);
 
 
 
