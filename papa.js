@@ -2,9 +2,8 @@ console.log("Ahoj bro, co tu chceš?")
 // Dynamicky vložíme CSS link do hlavičky
 const cssLink = document.createElement('link');
 cssLink.rel = 'stylesheet';
-cssLink.href = 'https://raw.githubusercontent.com/Pablo-963/papamartin-web-edit/main/papastyles.css';
+cssLink.href = 'https://cdn.jsdelivr.net/gh/Pablo-963/papamartin-web-edit@main/papastyles.css';
 document.head.appendChild(cssLink);
-
 
 
 
